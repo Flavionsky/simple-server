@@ -2,7 +2,6 @@
   <div id="app">
   <Navbar></Navbar>
   <Home msg="Benvenuto nella pagina di scelta dei server"/>
-  <Custom></Custom>
   </div>
 </template>
 
@@ -19,12 +18,10 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Home from '@/components/Home.vue'
-import Custom from '@/components/Custom.vue'
 export default {
   components: {
     Home,
     Navbar,
-    Custom
   }
 }
 </script>

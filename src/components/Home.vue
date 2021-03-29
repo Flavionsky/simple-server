@@ -6,7 +6,7 @@
     <main>
       <b-container class="offers">
         <b-row align-h="around">
-          <b-col lg="3" md="4" sm="12" class="server-card">
+          <b-col lg="3" md="6" sm="12" class="server-card">
             <h3>STANDARD</h3>
             <div class="property">
               <span><img src="img/cpu.png" alt="cpu" /> 1 Core</span>
@@ -21,7 +21,7 @@
             </div>
             <button>Ordina adesso</button>
           </b-col>
-          <b-col lg="3" md="4" sm="12" class="server-card">
+          <b-col lg="3" md="6" sm="12" class="server-card">
             <h3>MEDIUM</h3>
             <div class="property">
               <span><img src="img/cpu.png" alt="cpu" /> 4 Core</span>
@@ -31,12 +31,12 @@
               <span><img src="img/windows2016.png" alt="os" /></span>
             </div>
             <div class="price">
-              <p>188 &#8364;</p>
+              <p>251 &#8364;</p>
               <p>+ IVA/mese</p>
             </div>
             <button>Ordina adesso</button>
           </b-col>
-          <b-col lg="3" md="4" sm="12" class="server-card">
+          <b-col lg="3" md="6" sm="12" class="server-card">
             <h3>EXTREME</h3>
             <div class="property">
               <span><img src="img/cpu.png" alt="cpu" />8 Core</span>
@@ -47,20 +47,25 @@
               <span><img src="img/nas.webp" alt="nas" /></span>
             </div>
             <div class="price">
-              <p>337,75 &#8364;</p>
+              <p>479,50 &#8364;</p>
               <p>+ IVA/mese</p>
             </div>
             <button class="extreme-btn">Ordina adesso</button>
           </b-col>
         </b-row>
       </b-container>
+      <Custom></Custom>
     </main>
   </div>
 </template>
 
 <script>
+import Custom from '@/components/Custom.vue'
 export default {
   name: "Home",
+  components: {
+    Custom
+  },
   props: {
     msg: String,
   },
