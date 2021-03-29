@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="custom">
     <b-container class="offers">
       <b-row align-h="around">
         <b-col lg="6" md="6" sm="12" class="server-card">
@@ -134,15 +134,11 @@ export default {
     },
     minusQty: function (element) {
       this.elements.forEach(function (e) {
-        if (e.id === element.id && e.id != 3) {
-          if (e.qty >= e.min) {
+        if (e.id === element.id) {
+          if(e.qty > 0){
             e.qty -= e.eachqty;
             e.total = (e.qty * e.price).toFixed(2);
           }
-        }
-        if (e.id === 3 && e.qty > 0) {
-              e.qty -= 10;
-              e.total = (e.qty * e.price).toFixed(2);
         }
       });
     },

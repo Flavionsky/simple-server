@@ -20,7 +20,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item right>
-            <a href="#">Server Custom</a>
+           <button v-scroll-to="'#custom'">Server Custom</button> 
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -34,7 +34,7 @@ export default {
     return {
       clicked: false,
     };
-  },
+  }
 };
 </script>
 

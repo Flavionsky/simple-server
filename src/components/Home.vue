@@ -54,18 +54,13 @@
           </b-col>
         </b-row>
       </b-container>
-      <Custom></Custom>
     </main>
   </div>
 </template>
 
 <script>
-import Custom from '@/components/Custom.vue'
 export default {
   name: "Home",
-  components: {
-    Custom
-  },
   props: {
     msg: String,
   },
