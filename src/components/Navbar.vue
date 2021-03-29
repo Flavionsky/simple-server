@@ -1,5 +1,5 @@
 <template>
-    <b-navbar class="nav-bar" toggleable="lg" type="dark" variant="success">
+    <b-navbar class="nav-bar" toggleable="lg" type="light" variant="info">
       <b-navbar-brand href="#">
         <div class="left-logo">
           <img src="img/logo.png" alt="Logo" />
@@ -20,7 +20,8 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item right>
-           <button v-scroll-to="'#custom'">Server Custom</button> 
+           <button id="goToCustom" v-if="windowWidth < 991" @click="clicked = !clicked" v-scroll-to="'#custom'">Server Custom</button>
+           <button id="goToCustom" v-else v-scroll-to="'#custom'"><span>{{clicked = false}}</span>Server Custom</button>  
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -43,7 +44,7 @@ export default {
 .nav-bar {
   position: fixed;
   z-index: 100;
-  width: 100vw;
+  width: 100%;
   top: 0;
   .left-logo {
     display: flex;
@@ -53,16 +54,20 @@ export default {
       width: 60px;
     }
     span {
-      color: black;
+      color: white;
     }
   }
-  a{
+  button{
     font-size: 20px;
-    color: rgba($color: #000000, $alpha: 0.6);
   }
-  a:hover {
-    color: black;
-    text-decoration: none;
+  #goToCustom{
+    border: 1px solid black;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    span{
+      display: none;
+    }
   }
 }
 #nav-btn {
@@ -142,6 +147,18 @@ button.navbar-toggler.collapsed,
 button.navbar-toggler.not-collapsed {
   padding: 2px;
   border: none;
+}
+@media screen and (max-width: 350px) {
+  .nav-bar {
+    .left-logo {
+      img {
+        width: 38px;
+      }
+      span {
+        font-size: 15px;
+      }
+    }
+  }
 }
 @media screen and (max-width: 350px) {
   .nav-bar {

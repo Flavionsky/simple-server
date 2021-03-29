@@ -1,6 +1,7 @@
 <template>
   <div id="custom">
     <b-container class="offers">
+      <h1>Crea il server su misura per te!</h1>
       <b-row align-h="around">
         <b-col lg="6" md="6" sm="12" class="server-card">
           <h2>CUSTOM</h2>
@@ -9,8 +10,8 @@
               <img :src="element.img_url" alt="element" />
               <br>
               <span>{{ element.qty + element.min }}</span>
-              <span v-if="element.name == 'cpu'"> Core</span>
-              <span v-if="element.name == 'hd' || element.name == 'ram'"> GB</span>
+              <span v-if="element.name == 'cpu'">Core</span>
+              <span v-if="element.name == 'hd'">GB</span>
               <span>
                 <br>
                 <button @click="addItem(element)" @mousedown="delayUp(element)" @mouseup="stop()" @mouseleave="stop()"><i class="fas fa-plus"></i></button>
@@ -110,17 +111,14 @@ export default {
   },
   methods: {
     addItem: function (element) {
-      var isInArray = this.elements.find((e) => e.id === element.id);
-      if (isInArray) {
-        this.elements.forEach(function (e) {
-          if (e.id === element.id) {
-            if (e.qty < e.max) {
-              e.qty += e.eachqty;
-              e.total = (e.qty * e.price).toFixed(2);
-            }
+      this.elements.forEach(function (e) {
+        if (e.id === element.id) {
+          if (e.qty < e.max) {
+            e.qty += e.eachqty;
+            e.total = (e.qty * e.price).toFixed(2);
           }
-        });
-      }
+        }
+      });
     },
     delayUp(element) {
       this.timeout = setInterval(() => {
@@ -168,126 +166,140 @@ ul {
   opacity: 1 !important;
   box-shadow: 0 0 20px black;
 }
-.offers {
-  .server-card {
-    margin-top: 80px;
-    padding-top: 10px;
-    color: whitesmoke;
-    background-image: url("/img/property.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    h2{
-      padding-bottom: 30px;
+#custom{
+  background-image: url("/img/background-tech.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .offers {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    h1{
+      color: white;
+      text-shadow: 0 0 20px black;
     }
-    .property {
+    .server-card {
+      margin-top: 80px;
+      padding-top: 10px;
+      color: whitesmoke;
+      background-image: url("/img/property.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 15px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      .element {
-        padding-right: 20px;
-        img {
-          width: 94px;
-          padding-right: 10px;
-          padding-bottom: 20px;
-        }
-        span{
-          button{
-            margin-top: 20px;
-            margin-right:16px;
+      box-shadow: 0 0 12px white;
+      h2{
+        padding-bottom: 30px;
+      }
+      .property {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        .element {
+          padding-right: 20px;
+          img {
+            width: 94px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+          }
+          span{
+            margin-right: 10px;
+            button{
+              margin-top: 20px;
+              margin-right:16px;
+            }
           }
         }
       }
-    }
-    .price {
-      p:first-child {
-        font-size: 40px;
-        text-shadow: 0 0 20px black;
-      }
-      p:last-child {
-        font-size: 14px;
-        margin-top: -16px;
-        text-shadow: 0 0 20px black;
-      }
-    }
-    button {
-      background-color: #072549;
-      padding: 5px;
-      margin-bottom: 10px;
-      color: whitesmoke;
-      border: 1px solid white;
-      border-radius: 10px;
-    }
-    .extreme-btn {
-      margin-top: -5px;
-    }
-    .nas{
-      margin-top: 30px;
-      margin-bottom: 10px;
-      width: 140px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      img{
-        width: 120px;
-      }
-      span{
-        position: relative;
-        font-size: 22px;
-        padding: 5px;
-        margin: 5px;
-        opacity: 0.5;
-        border-radius: 10px;
-        input{
-          position: absolute;
-          left: 0;
-          top: 0;
-          opacity: 0;
-          cursor: pointer;
-          width: 90%;
-          height: 80%;
-          display: inline-block;
+      .price {
+        p:first-child {
+          font-size: 40px;
+          text-shadow: 0 0 20px black;
+        }
+        p:last-child {
+          font-size: 14px;
+          margin-top: -16px;
+          text-shadow: 0 0 20px black;
         }
       }
-    }
-    .os{
-      display: flex;
-      li{
-        position: relative;
-        width: 120px;
-        height: 150px;
+      button {
+        background-color: #17A2B8;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: black;
+        border: 1px solid black;
         border-radius: 10px;
+      }
+      .extreme-btn {
+        margin-top: -5px;
+      }
+      .nas{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        width: 140px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        opacity: 0.5;
-        .windows-img{
-          width: 90px;
+        img{
+          width: 120px;
         }
-        .centos-img{
-          width: 110px;
-        }
-        input{
-          position: absolute;
-          left: 0;
-          top: 0;
-          opacity: 0;
-          cursor: pointer;
-          width: 100%;
-          height: 100%;
-          display: inline-block;
+        span{
+          position: relative;
+          font-size: 22px;
+          padding: 5px;
+          margin: 5px;
+          opacity: 0.5;
+          border-radius: 10px;
+          input{
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 90%;
+            height: 80%;
+            display: inline-block;
+          }
         }
       }
-      li:first-child{
-        h5{
-          padding-top: 10px;
-          margin-bottom: 0px;
+      .os{
+        display: flex;
+        li{
+          position: relative;
+          width: 120px;
+          height: 150px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0.5;
+          .windows-img{
+            width: 90px;
+          }
+          .centos-img{
+            width: 110px;
+          }
+          input{
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+          }
+        }
+        li:first-child{
+          h5{
+            padding-top: 10px;
+            margin-bottom: 0px;
+          }
         }
       }
     }

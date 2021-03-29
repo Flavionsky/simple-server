@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vueScrollto from 'vue-scrollto'
+import VueWindowSize from 'vue-window-size';
+
 import {
     BootstrapVue,
     IconsPlugin
@@ -18,6 +20,8 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
 Vue.use(vueScrollto)
+
+Vue.use(VueWindowSize);
 
 Vue.config.productionTip = false
 

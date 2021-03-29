@@ -2,9 +2,11 @@
   <div class="home">
     <header>
       <h1>Ordina adesso a partire da 80&#8364;/mese!</h1>
+      <button v-scroll-to="'.offers'">scopri i pacchetti</button>
     </header>
     <main>
       <b-container class="offers">
+        <h1>Scegli il VPS che fa per te!</h1>
         <b-row align-h="around">
           <b-col lg="3" md="6" sm="12" class="server-card">
             <h3>STANDARD</h3>
@@ -71,12 +73,20 @@ export default {
 <style scoped lang="scss">
 .home {
   padding-top: 86px;
+  button{
+    background-color: #17A2B8;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
   header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 40vh;
+    flex-direction: column;
+    height: 100vh;
     background-image: url("/img/header.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -86,7 +96,16 @@ export default {
     }
   }
   main {
+      background-image: url("/img/background-tech2.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     .offers {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        h1{
+          color:black;
+        }
       .server-card {
         margin-top: 80px;
         padding-top: 10px;
@@ -94,6 +113,7 @@ export default {
         background-image: url("/img/property.jpg");
         background-position: center;
         border-radius: 15px;
+        box-shadow: 0 0 20px black;
         .property {
           display: flex;
           flex-wrap: wrap;
@@ -138,14 +158,6 @@ export default {
             margin-top: -16px;
             text-shadow: 0 0 20px black;
           }
-        }
-        button{
-          background-color: #072549;
-          padding: 5px;
-          margin-bottom: 10px;
-          color: whitesmoke;
-          border: 1px solid white;
-          border-radius: 10px;
         }
         .extreme-btn{
           margin-top: -5px;
